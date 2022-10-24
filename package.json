@@ -1,0 +1,25 @@
+{
+  "name": "social-media-apis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RoseThorn10/social-media-apis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RoseThorn10/social-media-apis/issues"
+  },
+  "homepage": "https://github.com/RoseThorn10/social-media-apis#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.6.7"
+  }
+}
