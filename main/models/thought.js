@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const reactionSchema = require('./reaction');
 
 const userSchema = new Schema({
     thoughtText: {
@@ -11,17 +12,13 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    {
-        username: {
-            type: String,
-            required: true,
-        }
+    username: {
+        type: String,
+        required: true,
     },
-    {
-        // reactions (These are like replies)
-
-        // Array of nested documents created with the reactionSchema   
-    },    
+    reactions: [
+        reactionSchema
+    ]
 },
     {
         toJSON: {
@@ -33,9 +30,9 @@ const userSchema = new Schema({
 
 userSchema.virtual('reactionCount').get(function () {
     return this.reactions.length;
-  });
-  
-  // Initialize our Post model
-  const Thought = model('thought', thoughtSchema);
-  
+});
+
+// Initialize our Post model
+const Thought = model('thought', thoughtSchema);
+
 module.exports = userSchema;

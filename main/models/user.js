@@ -14,15 +14,25 @@ const userSchema = new Schema(
             required: true,
             // validate
         },
-        thoughts: {
-          // Array of _id values referencing the Thought model  
-        },
-        friends: {
+        thoughts:
+          // Array of _id values referencing the Thought model   
+          [
+            {
+              type: Schema.Types.ObjectId,
+              ref: 'Thought',
+            },
+          ],
+        friends: [
             // Array of _id values referencing the User model (self-reference)
-        }
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ],
+
 
     }
-)
+);
 
 userSchema.virtual('friendCount').get(function () {
     return this.friends.length;
